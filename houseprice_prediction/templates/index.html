@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  
+<style>
+  h1{
+    color:black;
+    text-align: center;
+    font:fixed; 
+    font-size: 50px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  body{
+    background-color:green;
+  }
+  
+  form input{
+    text-align: center;
+    margin-bottom:20px ;
+    padding: 10px 40px;
+    border-radius: 10px;
+  }
+
+  form button{
+    padding:  5px 10px;
+    border-radius: 10px;
+  }
+
+  .login{
+    text-align: center;
+  }
+
+  .pred{
+    background-color:green;
+    padding: 10px 20px;
+    border-radius: 80px;
+  }
+  body{
+      background-color: hsl(0, 20%, 97%);
+      background-image: url('static/house image.jpg');
+      background-attachment: fixed; 
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-align: center;
+      padding-top: 100px;
+    }
+ 
+
+</style>
+
+</head>  
+
+<body>
+ <div class="login">
+	<h1>HOUSE PRICE PREDICTION</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="CRIM" placeholder="Enter the CRIM Value" required="required" />
+      <input type="text" name="ZN" placeholder="enter the ZN Value" required="required" />
+      <input type="text" name="INDUS" placeholder="enter the INDUS Value" required="required" />
+      <input type="text" name="CHAS" placeholder="enter the CHAS Value" required="required" />
+      <input type="text" name="NOX" placeholder="enter the NOX Value" required="required" />
+      <input type="text" name="RM" placeholder="enter the RM Value" required="required" />
+      <input type="text" name="AGE" placeholder="enter the AGE " required="required" />
+      <input type="text" name="DIS" placeholder="enter the DIS" required="required" />
+      <input type="text" name="RAD" placeholder="enter the TAX" required="required" />
+      <input type="text" name="TAX" placeholder="enter the age" required="required" />
+      <input type="text" name="PTRATIO" placeholder="enter the PTRATIO" required="required" />
+      <input type="text" name="B" placeholder="enter the B" required="required" />
+      <input type="text" name="LSTAT" placeholder="enter the LSTAT" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+    <div class="pred">
+      {{ prediction_text }}
+    </div>
+
+ </div>
+
+
+</body>
+</html>
+
+    
